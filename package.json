@@ -1,0 +1,50 @@
+{
+  "name": "images-optimization-env",
+  "version": "1.0.0",
+  "description": "Images Optimization Environment",
+  "main": "index.js",
+  "scripts": {
+    "jpeg-archive": "./bin/jpeg-recompress ./images/originals/jpg/IMG_0034.jpeg ./images/originals/jpg/IMG_0034_compressed.jpeg",
+    "jpeg-archive-quality": "./bin/jpeg-recompress --quality high --min 60 ./images/originals/jpg/IMG_0034.jpeg ./images/originals/jpg/IMG_0034_compressed_qiality.jpeg",
+    "jpeg-archive-accurate": "./bin/jpeg-recompress --accurate --quality high --min 60 ./images/originals/jpg/IMG_0034.jpeg ./images/originals/jpg/IMG_0034_compressed_accurate.jpeg",
+    "jpeg-archive-smallfry": "./bin/jpeg-recompress --method smallfry ./images/originals/jpg/IMG_0034.jpeg ./images/originals/jpg/IMG_0034_compressed_smallfry.jpeg",
+    "jpeg-compare": "./bin/jpeg-compare ./images/originals/jpg/IMG_0034.jpeg ./images/originals/jpg/IMG_0034_compressed.jpeg",
+    "jpeg-compare-ssim": "./bin/jpeg-compare --method ssim ./images/originals/jpg/IMG_0034.jpeg ./images/originals/jpg/IMG_0034_compressed.jpeg",
+    "jpeg-archive-parallel": "ladon -m compressed/RELDIR 'images/originals/jpg/*.jpg' -- ./bin/jpeg-recompress FULLPATH compressed/RELPATH",
+    "guetzli-⏳": "guetzli ./images/originals/jpg/IMG_0034.jpeg ./images/originals/jpg/IMG_0034_guetzli.jpeg",
+    "mozjpeg": "cjpeg -quality 75 -outfile ./images/originals/jpg/IMG_0034_mozjpeg.jpeg ./images/originals/jpg/IMG_0034.jpeg",
+    "pngquant": "pngquant --output ./images/originals/png/gits-scene_pngquant.png ./images/originals/png/gits-scene.png",
+    "pngquant-trans": "pngquant --output ./images/originals/png/sonic_pngquant.png ./images/originals/png/sonic.png",
+    "pngquant-trans-20": "pngquant --quality 20-30 --output ./images/originals/png/sonic_pngquant_20_30.png ./images/originals/png/sonic.png",
+    "pngquant-trans-80": "pngquant --quality 80-100 --output ./images/originals/png/sonic_pngquant_80_90.png ./images/originals/png/sonic.png",
+    "pngquant-trans-99": "pngquant --quality 99-99 --output ./images/originals/png/sonic_pngquant_100.png ./images/originals/png/sonic.png",
+    "optipng": "optipng -out ./images/originals/png/gits-scene_opptipng.png  ./images/originals/png/gits-scene.png",
+    "optipng-4": "optipng -o4 -out ./images/originals/png/gits-scene_opptipng_4.png  ./images/originals/png/gits-scene.png",
+    "optipng-7": "optipng -o7 -out ./images/originals/png/gits-scene_opptipng_7.png  ./images/originals/png/gits-scene.png",
+    "webp": "cwebp -q 80 ./images/originals/jpg/IMG_0034.jpeg -o ./images/originals/jpg/IMG_0034.webp",
+    "webp-70": "cwebp -p 60 ./images/originals/jpg/IMG_0034.jpeg -o ./images/originals/jpg/IMG_0034_70.webp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nucliweb/images-optimization-env.git"
+  },
+  "keywords": [
+    "images",
+    "optimization",
+    "image",
+    "performance"
+  ],
+  "author": {
+    "name": "Joan León",
+    "mail": "joan.leon@gmail.com",
+    "twitter": "@nucliweb"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nucliweb/images-optimization-env/issues"
+  },
+  "homepage": "https://github.com/nucliweb/images-optimization-env#readme",
+  "devDependencies": {
+    "ladon": "^1.0.6"
+  }
+}
